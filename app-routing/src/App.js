@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import UserList from './components/UserList';
+import PostsList from './components/Posts/PostsList'
 import './App.scss';
 
 class App extends Component {
@@ -17,6 +18,11 @@ class App extends Component {
           <li> <Link to="/user-list">
             <p>User List</p>
           </Link></li>
+          <li>
+            <Link to="/posts">
+              <p>Posts</p>
+            </Link>
+          </li>
         </ul>
 
 
@@ -29,7 +35,9 @@ class App extends Component {
         <Route exact path="/user-list" >
           <UserList></UserList>
         </Route>
-
+        <Route exact path="/posts">
+          <PostsList></PostsList>
+        </Route>
       </Router>
 
     );

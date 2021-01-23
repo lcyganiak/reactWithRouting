@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import User from './User'
+import User from './User';
 class UserList extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +13,7 @@ class UserList extends Component {
       name: this.inputName.value,
       key: Date.now()
     }
+
     // Rozwiązanie mało eleganckie ale skuteczne 
     // let oldUserList = this.state.userList
     // oldUserList.push(user)
