@@ -52,12 +52,17 @@ class OnePost extends Component {
   }
 
   render() {
+    const userName = this.state.userName.map((user, index) => {
+      if (user.id === this.props.onePost.userId) {
+        return <ContentPostsCard content={user.name} classCss="author" key={index}></ContentPostsCard>
+      }
+    })
     return (
       <div className="card">
         <div className="card-body">
           <ContentPostsCard content={this.props.onePost.title} classCss="title"></ContentPostsCard>
           <ContentPostsCard content={this.props.onePost.body} classCss="body"></ContentPostsCard>
-          <ContentPostsCard content={this.props.onePost.userName} classCss="author"></ContentPostsCard>
+          {userName}
         </div>
       </div>
     )

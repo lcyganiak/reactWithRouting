@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import OnePost from './OnePost';
+import axios from 'axios'
 
 class PostList extends Component {
   constructor(props) {
@@ -13,14 +14,22 @@ class PostList extends Component {
     this.getPosts()
   }
   getPosts() {
-
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+      .then(respons => {
+        this.setState({
+          posts: respons.data
+        })
+      })
   }
   render() {
-    const onePost = this.state.posts.map(item => {
-      return item
+    const onePost = this.state.posts.map((item, index) => {
+      return <OnePost onePost={item} key={index}></OnePost>
     })
+
     return (
-      <OnePost onePost={onePost}></OnePost>
+      <div>
+        {onePost}
+      </div>
     )
   }
 
